@@ -1,0 +1,24 @@
+def somalposto(taxalmposto, custo):
+    """Calcula o custo total incluindo o imposto sobre vendas."""
+    imposto = custo * (taxalmposto / 100)
+    custo_final = custo + imposto
+    return custo_final
+
+def main():
+    while True:
+        try:
+            custo = float(input("Digite o custo do item (ou um valor negativo para sair): "))
+            if custo < 0:
+                print("Encerrando o programa.")
+                break
+            
+            taxalmposto = float(input("Digite a taxa de imposto sobre vendas (em porcentagem): "))
+            
+            custo_final = somalposto(taxalmposto, custo)
+            print(f"O custo total incluindo o imposto é: R$ {custo_final:.2f}")
+
+        except ValueError:
+            print("Entrada inválida. Por favor, insira números válidos.")
+
+if __name__ == "__main__":
+    main()
