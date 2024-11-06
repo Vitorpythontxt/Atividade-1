@@ -1,0 +1,68 @@
+class Pessoa:
+    def __init__(self, nome, idade, peso, altura):
+        self.nome = nome
+        self.idade = idade
+        self.peso = peso
+        self.altura = altura
+
+    def envelhecer(self):
+        """Aumenta a idade e, se a idade for menor que 21, aumenta a altura em 0,5 cm."""
+        self.idade += 1
+        if self.idade < 21:
+            self.altura += 0.5
+        print(f"{self.nome} agora tem {self.idade} anos e sua altura é {self.altura:.2f} cm.")
+
+    def engordar(self, kg):
+        """Aumenta o peso da pessoa em kg."""
+        self.peso += kg
+        print(f"{self.nome} engordou {kg} kg e agora pesa {self.peso:.2f} kg.")
+
+    def emagrecer(self, kg):
+        """Diminui o peso da pessoa em kg, sem permitir que o peso fique abaixo de zero."""
+        self.peso = max(0, self.peso - kg)
+        print(f"{self.nome} emagreceu {kg} kg e agora pesa {self.peso:.2f} kg.")
+
+    def crescer(self, cm):
+        """Aumenta a altura da pessoa em cm."""
+        self.altura += cm
+        print(f"{self.nome} cresceu {cm} cm e agora tem {self.altura:.2f} cm de altura.")
+
+def main():
+    # Exemplo de uso da classe
+    nome = input("Digite o nome da pessoa: ")
+    idade = int(input("Digite a idade da pessoa: "))
+    peso = float(input("Digite o peso da pessoa (kg): "))
+    altura = float(input("Digite a altura da pessoa (cm): "))
+
+    pessoa = Pessoa(nome, idade, peso, altura)
+
+    # Interagindo com a pessoa
+    while True:
+        print("\nEscolha uma ação:")
+        print("1. Envelhecer")
+        print("2. Engordar")
+        print("3. Emagrecer")
+        print("4. Crescer")
+        print("5. Sair")
+        
+        escolha = input("Digite o número da ação: ")
+        
+        if escolha == '1':
+            pessoa.envelhecer()
+        elif escolha == '2':
+            kg = float(input("Quantos kg deseja engordar? "))
+            pessoa.engordar(kg)
+        elif escolha == '3':
+            kg = float(input("Quantos kg deseja emagrecer? "))
+            pessoa.emagrecer(kg)
+        elif escolha == '4':
+            cm = float(input("Quantos cm deseja crescer? "))
+            pessoa.crescer(cm)
+        elif escolha == '5':
+            print("Encerrando o programa.")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+if __name__ == "__main__":
+    main()
