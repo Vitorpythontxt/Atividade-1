@@ -1,0 +1,47 @@
+class Tamagoshi:
+    def __init__(self, nome, saude=100, fome=0, idade=0):
+        self.nome = nome
+        self.saude = saude
+        self.fome = fome
+        self.idade = idade
+
+    def alterar_nome(self, novo_nome):
+        """Altera o nome do Tamagoshi."""
+        self.nome = novo_nome
+
+    def alterar_fome(self, nova_fome):
+        """Altera o nível de fome do Tamagoshi."""
+        self.fome = nova_fome
+
+    def alterar_saude(self, nova_saude):
+        """Altera o nível de saúde do Tamagoshi."""
+        self.saude = nova_saude
+
+    def alterar_idade(self, nova_idade):
+        """Altera a idade do Tamagoshi."""
+        self.idade = nova_idade
+
+    def imprimir_status(self):
+        """Imprime o status do Tamagoshi."""
+        print(f"Nome: {self.nome}, Saúde: {self.saude}, Fome: {self.fome}, Idade: {self.idade}")
+
+# Instanciando dois Tamagoshis
+tamagoshi1 = Tamagoshi("Tama1")
+tamagoshi2 = Tamagoshi("Tama2", saude=80, fome=10, idade=2)
+
+# Alterando atributos do primeiro Tamagoshi
+tamagoshi1.alterar_nome("TamaModificado")
+tamagoshi1.alterar_fome(4)
+tamagoshi1.alterar_saude(80)
+tamagoshi1.alterar_idade(1)
+
+# Alterando atributos do segundo Tamagoshi
+tamagoshi2.alterar_fome(20)
+tamagoshi2.alterar_saude(75)
+
+# Imprimindo o status dos Tamagoshis
+print("Status do Tamagoshi 1:")
+tamagoshi1.imprimir_status()
+
+print("Status do Tamagoshi 2:")
+tamagoshi2.imprimir_status()
